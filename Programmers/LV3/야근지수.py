@@ -1,3 +1,6 @@
+# 내가 짠 코드
+# 73.3 / 100.0
+
 def solution(n, works):
     answer = 0
     while n:
@@ -20,17 +23,17 @@ def solution(n, works):
         elif min(works) == max(works):
                 if max_count * max(works) > n:
                     minus = n // max_count
-                    for i in range(1, max_count):
+                    for i in range(1, max_count+1):
                         works[-i] -= minus
                         n -= minus
 
             
         else:
-            for i in range(gap, 1, -1):
+            for i in range(gap, 0, -1):
                 if gap * max_count > n:
                     continue
                 elif gap * max_count <= n:
-                    for j in range(1, max_count):
+                    for j in range(1, max_count+1):
                         works[-j] -= i
                         n -= i
                     break
@@ -40,6 +43,3 @@ def solution(n, works):
         answer += i*i
 
     return answer
-
-   
-print(solution(4, [4, 3, 3]))
